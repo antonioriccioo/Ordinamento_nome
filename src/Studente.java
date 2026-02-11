@@ -1,4 +1,4 @@
-public class Studente {
+public class Studente implements Comparable<Studente> {
     private String nome;
     private String cognome;
     private float media;
@@ -7,6 +7,10 @@ public class Studente {
         this.nome = nome;
         this.cognome = cognome;
         this.media = media;
+    }
+
+    public float getMedia() {
+        return media;
     }
 
     public String getNome() {
@@ -19,6 +23,11 @@ public class Studente {
 
         @Override
         public String toString() {
-            return nome + " (" + cognome + ")" + ", valutazione " + media;
+            return nome + " " + cognome + " " + "valutazione " + media;
         }
+
+    @Override
+    public int compareTo(Studente o) {
+        return (this.getNome() + this.getCognome()).compareTo(o.getNome() + o.getCognome());
     }
+}
